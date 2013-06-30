@@ -109,6 +109,7 @@ chrome.extension.onRequest.addListener(function (result) {
 
 var allImages = [];
 var visibleImages = [];
+var newVisibleImages = [];
 var linkedImages = {};
 
 function filterImages() {
@@ -159,7 +160,20 @@ function filterImages() {
   if (localStorage.sort_by_url == 'true') {
     visibleImages.sort();
   }
-  
+
+
+	newVisibleImages.splice(0,newVisibleImages.length); 
+ for (var i in visibleImages) {
+	var tmpImage = new Image();
+	tmpImage.src = visibleImages[i];
+	if(tmpImage.width >300 && tmpImage.height>300)
+	{
+		newVisibleImages.push(visibleImages[i]);
+	}
+ }
+
+ visibleImages = newVisibleImages;
+ 
   displayImages();
 }
 
@@ -272,9 +286,23 @@ function showDownloadConfirmation() {
 
 function startDownload() {
   var checkedImages = [];
+  var dirName = new Date().getTime();
   for (var i in visibleImages) {
     if ($('#checkbox' + i).prop('checked')) {
-      checkedImages.push(visibleImages[i]);
+      //checkedImages.push(visibleImages[i]);
+	  $.post(
+			"https://pcs.baidu.com/rest/2.0/pcs/services/cloud_dl?method=add_task&access_token=3.b66eee5b1077504c59744333fba9af22.2592000.1374854105.2536608473-248414",
+			{	save_path:decodeURIComponent("%2Fapps%2F%E6%B5%8B%E8%AF%95%E5%BA%94%E7%94%A8%2Fpictures%2F"+dirName+"%2F"),
+				source_url:decodeURIComponent(visibleImages[i]),
+				rate_limit:8000,
+				timeout:3600,
+				expires:'',
+				callback:''
+			},
+			function(data){
+				//alert(data);
+			},
+			"json");
     }
   }
   
