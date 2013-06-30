@@ -102,6 +102,14 @@
       </label>
       
       <table>
+	    <tr title="Setting the minimum width filter for images that are too small to make out">
+          <td><label for="image_filter_width">Filter Width:</label></td>
+          <td><input type="number" id="image_filter_width" min="50" max="99999999" />px</td>
+        </tr>
+        <tr title="Setting the minimum height filter for images that are too small to make out">
+          <td><label for="image_filter_height">Filter Height:</label></td>
+          <td><input type="number" id="image_filter_height" min="50" max="99999999" />px</td>
+        </tr>
         <tr title="Setting the minimum width can be useful for images that are too small to make out">
           <td><label for="image_min_width_numberbox">Minimum Width:</label></td>
           <td><input type="number" id="image_min_width_numberbox" min="0" max="720" />px</td>

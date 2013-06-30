@@ -162,15 +162,17 @@ function filterImages() {
   }
 
 
+	//过滤图片大小
 	newVisibleImages.splice(0,newVisibleImages.length); 
- for (var i in visibleImages) {
-	var tmpImage = new Image();
-	tmpImage.src = visibleImages[i];
-	if(tmpImage.width >300 && tmpImage.height>300)
-	{
-		newVisibleImages.push(visibleImages[i]);
-	}
- }
+	for (var i in visibleImages) {
+		var tmpImage = new Image();
+		tmpImage.src = visibleImages[i];
+		if((tmpImage.width > localStorage.image_filter_width)
+			&& (tmpImage.height > localStorage.image_filter_height))
+		{
+			newVisibleImages.push(visibleImages[i]);
+		}
+	 }
 
  visibleImages = newVisibleImages;
  

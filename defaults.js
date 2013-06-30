@@ -19,23 +19,29 @@ localStorage.show_download_notification = localStorage.show_download_notificatio
 localStorage.show_filter_mode_default = 'true';
 localStorage.show_filter_mode = localStorage.show_filter_mode || localStorage.show_filter_mode_default;
 
-localStorage.show_only_images_from_links_default = 'true';
+localStorage.show_only_images_from_links_default = 'false';
 localStorage.show_only_images_from_links = localStorage.show_only_images_from_links || localStorage.show_only_images_from_links_default;
 
-localStorage.show_sort_by_url_default = 'true';
+localStorage.show_sort_by_url_default = 'false';
 localStorage.show_sort_by_url = localStorage.show_sort_by_url || localStorage.show_sort_by_url_default;
 
 //Images
-localStorage.show_download_image_button_default = 'true';
+localStorage.show_download_image_button_default = 'false';
 localStorage.show_download_image_button = localStorage.show_download_image_button || localStorage.show_download_image_button_default;
 
-localStorage.show_open_image_button_default = 'true';
+localStorage.show_open_image_button_default = 'false';
 localStorage.show_open_image_button = localStorage.show_open_image_button || localStorage.show_open_image_button_default;
 
-localStorage.show_image_url_default = 'true';
+localStorage.show_image_url_default = 'false';
 localStorage.show_image_url = localStorage.show_image_url || localStorage.show_image_url_default;
 
-localStorage.image_min_width_default = '30';
+localStorage.image_filter_width_default = '100';
+localStorage.image_filter_width = localStorage.image_filter_width || localStorage.image_filter_width_default;
+
+localStorage.image_filter_height_default = '100';
+localStorage.image_filter_height = localStorage.image_filter_height || localStorage.image_filter_height_default;
+
+localStorage.image_min_width_default = '100';
 localStorage.image_min_width = localStorage.image_min_width || localStorage.image_min_width_default;
 
 localStorage.image_max_width_default = '300';

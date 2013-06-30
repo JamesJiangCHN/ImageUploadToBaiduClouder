@@ -1,7 +1,7 @@
 {
-  "name": "Image Downloader",
-  "description": "See all images shown or linked on a web page and download them.",
-  "version": "1.3",
+  "name": "Image Upload To Baidu Cloud",
+  "description": "See all images shown or linked on a web page and upload them to baidu cloud.",
+  "version": "1.0.1",
   "manifest_version": 2,
   "permissions": [
     "tabs", "http://*/*", "https://*/*"

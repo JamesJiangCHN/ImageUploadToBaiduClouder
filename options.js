@@ -18,22 +18,24 @@ function initializeControlValues(reset) {
     $('#show_filter_mode_checkbox').prop('checked', true);
   }
   if ((reset ? localStorage.show_only_images_from_links_default : localStorage.show_only_images_from_links) == 'true') {
-    $('#show_only_images_from_links_checkbox').prop('checked', true);
+    $('#show_only_images_from_links_checkbox').prop('checked', false);
   }
   if ((reset ? localStorage.show_sort_by_url_default : localStorage.show_sort_by_url) == 'true') {
-    $('#show_sort_by_url_checkbox').prop('checked', true);
+    $('#show_sort_by_url_checkbox').prop('checked', false);
   }
   
   //Images
   if ((reset ? localStorage.show_download_image_button_default : localStorage.show_download_image_button) == 'true') {
-    $('#show_download_image_button_checkbox').prop('checked', true);
+    $('#show_download_image_button_checkbox').prop('checked', false);
   }
   if ((reset ? localStorage.show_open_image_button_default : localStorage.show_open_image_button) == 'true') {
-    $('#show_open_image_button_checkbox').prop('checked', true);
+    $('#show_open_image_button_checkbox').prop('checked', false);
   }
   if ((reset ? localStorage.show_image_url_default : localStorage.show_image_url) == 'true') {
-    $('#show_image_url_checkbox').prop('checked', true);
+    $('#show_image_url_checkbox').prop('checked', false);
   }
+  $('#image_filter_width').val(reset ? localStorage.image_filter_width_default : localStorage.image_filter_width);
+  $('#image_filter_height').val(reset ? localStorage.image_filter_height_default : localStorage.image_filter_height);
   $('#image_min_width_numberbox').val(reset ? localStorage.image_min_width_default : localStorage.image_min_width);
   $('#image_max_width_numberbox').val(reset ? localStorage.image_max_width_default : localStorage.image_max_width);
   $('#image_border_width_numberbox').val(reset ? localStorage.image_border_width_default : localStorage.image_border_width);
@@ -110,6 +112,8 @@ function saveOptions() {
   localStorage.show_open_image_button = $('#show_open_image_button_checkbox').prop('checked');
   localStorage.show_image_url = $('#show_image_url_checkbox').prop('checked');
   
+  localStorage.image_filter_width = $('#image_filter_width').val();
+  localStorage.image_filter_height = $('#image_filter_height').val();
   localStorage.image_min_width = $('#image_min_width_numberbox').val();
   localStorage.image_max_width = $('#image_max_width_numberbox').val();
   localStorage.image_border_width = $('#image_border_width_numberbox').val();
