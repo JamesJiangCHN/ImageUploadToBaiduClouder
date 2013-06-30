@@ -292,19 +292,22 @@ function startDownload() {
   for (var i in visibleImages) {
     if ($('#checkbox' + i).prop('checked')) {
       //checkedImages.push(visibleImages[i]);
-	  $.post(
-			"https://pcs.baidu.com/rest/2.0/pcs/services/cloud_dl?method=add_task&access_token=3.b66eee5b1077504c59744333fba9af22.2592000.1374854105.2536608473-248414",
-			{	save_path:decodeURIComponent("%2Fapps%2F%E6%B5%8B%E8%AF%95%E5%BA%94%E7%94%A8%2Fpictures%2F"+dirName+"%2F"),
-				source_url:decodeURIComponent(visibleImages[i]),
-				rate_limit:8000,
-				timeout:3600,
-				expires:'',
-				callback:''
-			},
-			function(data){
-				//alert(data);
-			},
-			"json");
+		$.post(
+		"https://pcs.baidu.com/rest/2.0/pcs/services/cloud_dl?method=add_task&access_token=3.b66eee5b1077504c59744333fba9af22.2592000.1374854105.2536608473-248414",
+		{	
+			//%2Fapps%2F%E6%B5%8B%E8%AF%95%E5%BA%94%E7%94%A8%2Fpictures%2F
+			save_path:decodeURIComponent("%2Fapps%2F%E6%B5%8B%E8%AF%95%E5%BA%94%E7%94%A8%2Fpictures%2F"+dirName+"%2F"),
+			source_url:decodeURIComponent(visibleImages[i]),
+			//rate_limit:10240,
+			timeout:3600,
+			expires:'',
+			callback:''
+		},
+		function(data){
+			//alert(data);
+		},
+		"json");
+		setTimeout(function(){i+=1;},1000);
     }
   }
   
